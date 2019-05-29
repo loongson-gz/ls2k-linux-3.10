@@ -1,0 +1,40 @@
+/dts-v1/;
+/ {
+	model = "loongson,generic";
+	compatible = "loongson,loongson3";
+	#address-cells = <2>;
+	#size-cells = <2>;
+	platic: interrupt-controller@18000020 {
+		compatible = "loongson,rs780-interrupt-controller";
+		interrupt-controller;
+		#interrupt-cells = <1>;
+	};
+
+	platform {
+		compatible = "loongson,nbus", "simple-bus";
+		#address-cells = <2>;
+		#size-cells = <1>;
+		ranges = <0x000 0x00000000 0x000 0x00000000 0x20000000>;
+
+		uart4: serial@0x180003f8 {
+			device_type = "serial";
+			compatible = "ns16550a";
+			reg = <0 0x180003f8 0x8>;
+			clock-frequency = <1843200>;
+			interrupts = <7>;
+			interrupt-parent = <&platic>;
+			no-loopback-test;
+		};
+
+		uart5: serial@0x180002f8 {
+			device_type = "serial";
+			compatible = "ns16550a";
+			reg = <0 0x180002f8 0x8>;
+			clock-frequency = <1843200>;
+			interrupts = <7>;
+			interrupt-parent = <&platic>;
+			no-loopback-test;
+		};
+
+	};
+};
