@@ -30,5 +30,5 @@ obj-$(CONFIG_LWTUNNEL) += lwtunnel.o
 obj-$(CONFIG_DST_CACHE) += dst_cache.o
 obj-$(CONFIG_NET_DEVLINK) += devlink.o
 ifdef CONFIG_2K1000_FIXUP_NET
-CFLAGS_dev.o = -Wa$(comma)-mfix-loongson2k-jump=2
+#CFLAGS_dev.o = -Wa$(comma)-mfix-loongson2k-jump=2
 endif

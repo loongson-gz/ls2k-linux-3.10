@@ -185,7 +185,7 @@ cflags-$(CONFIG_CPU_LOONGSON2K)	+= $(call cc-option,-march=mips64r2,-mips64r2 -U
 			-Wa,-mips64r2 -Wa,--trap
 
 ifdef CONFIG_2K1000_FIXUP_ALL
-cflags-$(CONFIG_CPU_LOONGSON2K)	+= -Wa$(comma)-mfix-loongson2k-jump=2
+#cflags-$(CONFIG_CPU_LOONGSON2K)	+= -Wa$(comma)-mfix-loongson2k-jump=2
 endif
 
 ifeq (,$(findstring march=octeon, $(cflags-$(CONFIG_CPU_CAVIUM_OCTEON))))
