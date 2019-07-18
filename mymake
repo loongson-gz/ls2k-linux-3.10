@@ -1,7 +1,7 @@
 #0!/bin/sh
 export LC_ALL=C LANG=C
 export PATH=/opt/gcc-4.9.3-64-gnu/bin:$PATH
-export MAKEFLAGS='CC=mips64el-linux-gcc'
+export MAKEFLAGS='CC=mips64el-loongson-linux-gcc'
 case $1 in
 qemu)
 shift
@@ -49,9 +49,9 @@ showmount -e 127.0.0.1|grep -q /mnt/tmp && sudo exportfs -u  *:/mnt/tmp
 sudo exportfs -o rw,sync,no_root_squash,fsid=20 *:/mnt/tmp
 ;;
 vmlinux)
-make ARCH=mips CROSS_COMPILE=mips64el-linux- -j 4 "$@"
+make ARCH=mips CROSS_COMPILE=mips64el-loongson-linux- -j 4 "$@"
 ;;
 *)
-make ARCH=mips CROSS_COMPILE=mips64el-linux- -j 4   INSTALL_MOD_PATH=/tmp/modules/ "$@"
+make ARCH=mips CROSS_COMPILE=mips64el-loongson-linux- -j 4   INSTALL_MOD_PATH=/tmp/modules/ "$@"
 ;;
 esac
